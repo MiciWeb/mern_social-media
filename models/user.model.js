@@ -67,5 +67,4 @@ userSchema.statics.login = async function(email, password) {
 };
 
 const UserModel = mongoose.model("users", userSchema);
-
 module.exports = UserModel;
