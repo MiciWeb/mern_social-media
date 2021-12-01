@@ -7,6 +7,7 @@ require("./config/db");
 const { checkUser } = require("./middlewares/auth.middleware");
 const { requireAuth } = require("./middlewares/auth.middleware");
 const userRoutes = require("./routes/user.routes");
+const postRoutes = require("./routes/post.routes");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,9 +21,9 @@ app.get('/jwtid', requireAuth, (req, res) => {
 
 // routes
 app.use("/api/user", userRoutes);
+app.use("/api/post", postRoutes);
 
 // server
 app.listen(process.env.PORT, () => {
     console.log("listening on port " + process.env.PORT);
 })
-
