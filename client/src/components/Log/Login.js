@@ -11,16 +11,6 @@ const Login = () => {
         const emailError = document.querySelector(".email.error");
         const passwordError = document.querySelector(".password.error");
 
-
-        axios({
-            method: "get",
-            url: `${process.env.REACT_APP_API_URL}api/user`,
-            withCredentials: true,
-        })
-            .then((res) => {
-                console.log(res);
-            })
-
         axios({
             method: "post",
             url: `${process.env.REACT_APP_API_URL}api/user/login`,
@@ -31,7 +21,6 @@ const Login = () => {
             },
         })
             .then((res) => {
-                console.log(res);
                 if (res.data.errors) {
                     emailError.innerHTML = res.data.errors.email;
                     passwordError.innerHTML = res.data.errors.password;

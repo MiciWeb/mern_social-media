@@ -25,7 +25,6 @@ const App = () => {
 
     // if (uid) dispatch(getUser(uid));
   }, [uid]);
-  console.log(uid)
   return (
     <UidContext.Provider value={uid}>
       <Routes />
