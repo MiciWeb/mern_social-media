@@ -8,7 +8,7 @@ module.exports.getAllUsers = async (req, res) => {
 
 module.exports.userInfo = (req, res) => {
     if (!ObjectID.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id)
+        return res.status(200).send("ID unknown : " + req.params.id)
     }
     UserModel.findById(req.params.id, (err, docs) => {
         if (!err) res.send(docs);
@@ -18,7 +18,7 @@ module.exports.userInfo = (req, res) => {
 
 module.exports.updateUser = async (req, res) => {
     if (!ObjectID.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
     }
 
     await UserModel.findOneAndUpdate(
@@ -38,7 +38,7 @@ module.exports.updateUser = async (req, res) => {
 
 module.exports.deleteUser = async (req, res) => {
     if (!ObjectID.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id)
+        return res.status(200).send("ID unknown : " + req.params.id)
     }
     try {
         await UserModel.remove({ _id: req.params.id }).exec();
@@ -54,7 +54,7 @@ module.exports.follow = async (req, res) => {
         !ObjectID.isValid(req.params.id) ||
         !ObjectID.isValid(req.body.idToFollow)
     )
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
 
     // try {
     // add to the follower list
@@ -64,7 +64,7 @@ module.exports.follow = async (req, res) => {
         { new: true, upsert: true },
         (err, docs) => {
             if (!err) res.status(201).json(docs);
-            else return res.status(400).jsos(err);
+            else return res.status(200).jsos(err);
         }
     );
     // add to following list
@@ -74,7 +74,7 @@ module.exports.follow = async (req, res) => {
         { new: true, upsert: true },
         (err, docs) => {
             // if (!err) res.status(201).json(docs);
-            if (err) return res.status(400).jsos(err);
+            if (err) return res.status(200).jsos(err);
         }
     );
     // } catch (err) {
@@ -87,7 +87,7 @@ module.exports.unfollow = async (req, res) => {
         !ObjectID.isValid(req.params.id) ||
         !ObjectID.isValid(req.body.idToUnfollow)
     )
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
 
     // try {
     await UserModel.findByIdAndUpdate(
@@ -96,7 +96,7 @@ module.exports.unfollow = async (req, res) => {
         { new: true, upsert: true },
         (err, docs) => {
             if (!err) res.status(201).json(docs);
-            else return res.status(400).jsos(err);
+            else return res.status(200).jsos(err);
         }
     );
     // remove to following list
@@ -106,7 +106,7 @@ module.exports.unfollow = async (req, res) => {
         { new: true, upsert: true },
         (err, docs) => {
             // if (!err) res.status(201).json(docs);
-            if (err) return res.status(400).jsos(err);
+            if (err) return res.status(200).jsos(err);
         }
     );
     // } catch (err) {

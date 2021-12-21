@@ -52,12 +52,12 @@ module.exports.createPost = async (req, res) => {
         const post = await newPost.save();
         return res.status(201).json(post);
     } catch (err) {
-        return res.status(400).send(err);
+        return res.status(200).send(err);
     }
 }
 module.exports.updatePost = async (req, res) => {
     if (!ObjectID.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
     }
 
     PostModel.findOneAndUpdate(
@@ -75,7 +75,7 @@ module.exports.updatePost = async (req, res) => {
 
 module.exports.deletePost = async (req, res) => {
     if (!ObjectID.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
     }
 
     PostModel.findByIdAndRemove(
@@ -89,7 +89,7 @@ module.exports.deletePost = async (req, res) => {
 
 module.exports.likePost = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
 
     try {
         await PostModel.findByIdAndUpdate(
@@ -99,8 +99,8 @@ module.exports.likePost = async (req, res) => {
             },
             { new: true },
             (err, docs) => {
-                if (err) return res.status(400).send(err);
-                if (err) return res.status(400).send(err);
+                if (err) return res.status(200).send(err);
+                if (err) return res.status(200).send(err);
                 else
                     UserModel.findByIdAndUpdate(
                         req.body.id,
@@ -110,7 +110,7 @@ module.exports.likePost = async (req, res) => {
                         { new: true },
                         (err, docs) => {
                             if (!err) res.send(docs);
-                            else return res.status(400).send(err);
+                            else return res.status(200).send(err);
                         }
                     );
             }
@@ -123,7 +123,7 @@ module.exports.likePost = async (req, res) => {
 
 module.exports.unlikePost = async (req, res) => {
     if (!ObjectID.isValid(req.params.id)) {
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
     }
 
     try {
@@ -134,7 +134,7 @@ module.exports.unlikePost = async (req, res) => {
             },
             { new: true },
             (err, docs) => {
-                if (err) return res.status(400).send(err);
+                if (err) return res.status(200).send(err);
                 else
                     UserModel.findByIdAndUpdate(
                         req.body.id,
@@ -144,7 +144,7 @@ module.exports.unlikePost = async (req, res) => {
                         { new: true },
                         (err, docs) => {
                             if (!err) res.send(docs);
-                            else return res.status(400).send(err);
+                            else return res.status(200).send(err);
                         }
                     );
             }
@@ -156,7 +156,7 @@ module.exports.unlikePost = async (req, res) => {
 
 module.exports.commentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
 
     try {
         return PostModel.findByIdAndUpdate(
@@ -174,18 +174,18 @@ module.exports.commentPost = (req, res) => {
             { new: true },
             (err, docs) => {
                 if (!err) return res.send(docs);
-                else return res.status(400).send(err);
+                else return res.status(200).send(err);
             }
         );
     } catch (err) {
-        return res.status(400).send(err);
+        return res.status(200).send(err);
     }
 };
 
 
 module.exports.editCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
 
     try {
         return PostModel.findById(req.params.id, (err, docs) => {
@@ -201,13 +201,13 @@ module.exports.editCommentPost = (req, res) => {
             });
         });
     } catch (err) {
-        return res.status(400).send(err);
+        return res.status(200).send(err);
     }
 };
 
 module.exports.deleteCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
-        return res.status(400).send("ID unknown : " + req.params.id);
+        return res.status(200).send("ID unknown : " + req.params.id);
 
     try {
         return PostModel.findByIdAndUpdate(
@@ -222,10 +222,10 @@ module.exports.deleteCommentPost = (req, res) => {
             { new: true },
             (err, docs) => {
                 if (!err) return res.send(docs);
-                else return res.status(400).send(err);
+                else return res.status(200).send(err);
             }
         );
     } catch (err) {
-        return res.status(400).send(err);
+        return res.status(200).send(err);
     }
 };

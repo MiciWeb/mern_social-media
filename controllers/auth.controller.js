@@ -18,7 +18,7 @@ module.exports.signUp = async (req, res) => {
     }
     catch (err) {
         const errors = signUpErrors(err)
-        res.status(400).send({ errors })
+        res.status(200).send({ errors })
     }
 }
 
@@ -31,8 +31,8 @@ module.exports.signIn = async (req, res) => {
         res.cookie('jwt', token, { httpOnly: true, maxAge });
         res.status(200).json({ user: user._id })
     } catch (err) {
-          const errors = signInErrors(err);
-        res.status(400).send({ errors });
+        const errors = signInErrors(err);
+        res.status(200).send({ errors });
     }
 }
 
