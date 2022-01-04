@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const GET_USER = "GET_USER";
+export const UPLOAD_PICTURE = "UPLOAD_PICTURE";
 
 export const getUser = (uid) => {
   return (dispatch) => {
