@@ -7,6 +7,8 @@ import { updateBio } from "../../actions/user.actions";
 // import FollowHandler from "./FollowHandler";
 
 const UpdateProfil = () => {
+    const [bio, setBio] = useState("");
+    const [updateForm, setUpdateForm] = useState(false);
     const userData = useSelector((state) => state.userReducer);
 
     return (
@@ -16,8 +18,17 @@ const UpdateProfil = () => {
             <div className="update-container">
                 <div className="left-part">
                     <h3>Photo de profil</h3>
-                    <img src={userData.picture} alt="photo-de-profil"/>
-                    <UploadImg/>
+                    <img src={userData.picture} alt="photo-de-profil" />
+                    <UploadImg />
+                </div>
+                <div className="right-part">
+                    <h3>Bio</h3>
+                    {updateForm == false && (
+                        <>
+                            <p onClick={()=>setUpdateForm(!updateForm)}>{userData.bio}</p>
+                            <button onClick={setUpdateForm(!updateForm)}>Modifier bio</button>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
