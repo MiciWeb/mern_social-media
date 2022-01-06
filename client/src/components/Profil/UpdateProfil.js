@@ -63,9 +63,7 @@ const UpdateProfil = () => {
                 <div className="popup-profil-container">
                     <div className="modal">
                         <h3>Abonnements</h3>
-                        <span className="cross" onClick={() => setFollowingPopup(false)}>
-                            &#10005;
-            </span>
+                        <span className="cross" onClick={() => setFollowingPopup(false)}>&#10005;</span>
                         <ul>
                             {usersData.map((user) => {
                                 for (let i = 0; i < userData.following.length; i++) {
@@ -93,11 +91,8 @@ const UpdateProfil = () => {
                         <span className="cross" onClick={() => setFollowersPopup(false)}>
                             &#10005;
             </span>
-                        <ul>                                    {console.log(userData)}
-
-                            {[usersData].map((user) => {
-                                <h4>{user.bio}</h4>
-                        
+                        <ul>
+                            {usersData.map((user) => {
                                 for (let i = 0; i < userData.followers.length; i++) {
                                     if (user._id === userData.followers[i]) {
                                         return (

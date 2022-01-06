@@ -47,28 +47,29 @@ export const updateBio = (userId, bio) => {
   };
 };
 
-export const followUser = (userId, idToFollow) => {
+export const followUser = (followerId, idToFollow) => {
   return (dispatch) => {
     return axios({
       method: "patch",
-      url: `${process.env.REACT_APP_API_URL}api/user/follow/` + userId,
+      url: `${process.env.REACT_APP_API_URL}api/user/follow/` + followerId,
       data: { idToFollow },
     })
       .then((res) => {
-        dispatch({ type: FOLLOW_USER, payload: idToFollow });
+        dispatch({ type: FOLLOW_USER, payload: { idToFollow } });
       })
       .catch((err) => console.log(err));
   };
 };
-export const unfollowUser = (userId, idToUnfollow) => {
+
+export const unfollowUser = (followerId, idToUnfollow) => {
   return (dispatch) => {
     return axios({
       method: "patch",
-      url: `${process.env.REACT_APP_API_URL}api/user/follow/` + userId,
+      url: `${process.env.REACT_APP_API_URL}api/user/unfollow/` + followerId,
       data: { idToUnfollow },
     })
       .then((res) => {
-        dispatch({ type: UNFOLLOW_USER, payload: idToUnfollow });
+        dispatch({ type: UNFOLLOW_USER, payload: { idToUnfollow } });
       })
       .catch((err) => console.log(err));
   };

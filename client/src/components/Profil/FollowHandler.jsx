@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { followUser } from "../../actions/user.actions";
-import { unfollowUser } from "../../actions/user.actions";
-import { isEmpty } from "../Utils"
-export default function FollowHandler({ idToFollow }) {
+import { followUser, unfollowUser } from "../../actions/user.actions";
+import { isEmpty } from "../Utils";
+
+const FollowHandler = ({ idToFollow, type }) => {
   const userData = useSelector((state) => state.userReducer);
   const [isFollowed, setIsFollowed] = useState(false);
   const dispatch = useDispatch();
@@ -25,6 +25,7 @@ export default function FollowHandler({ idToFollow }) {
       } else setIsFollowed(false);
     }
   }, [userData, idToFollow]);
+
   return (
     <>
       {isFollowed && !isEmpty(userData) && (
@@ -34,9 +35,11 @@ export default function FollowHandler({ idToFollow }) {
       )}
       {isFollowed === false && !isEmpty(userData) && (
         <span onClick={handleFollow}>
-          follow
+          <button className="follow-btn">Suivre</button>
         </span>
       )}
     </>
-  )
-}
+  );
+};
+
+export default FollowHandler;

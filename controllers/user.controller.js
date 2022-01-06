@@ -89,8 +89,8 @@ module.exports.unfollow = async (req, res) => {
     )
         return res.status(200).send("ID unknown : " + req.params.id);
 
-    // try {
-    await UserModel.findByIdAndUpdate(
+    try {
+     UserModel.findByIdAndUpdate(
         req.params.id,
         { $pull: { following: req.body.idToUnfollow } },
         { new: true, upsert: true },
@@ -100,7 +100,7 @@ module.exports.unfollow = async (req, res) => {
         }
     );
     // remove to following list
-    await UserModel.findByIdAndUpdate(
+     UserModel.findByIdAndUpdate(
         req.body.idToUnfollow,
         { $pull: { followers: req.params.id } },
         { new: true, upsert: true },
@@ -109,7 +109,7 @@ module.exports.unfollow = async (req, res) => {
             if (err) return res.status(200).jsos(err);
         }
     );
-    // } catch (err) {
-    //     console.log(err);
-    // }
+    } catch (err) {
+        console.log(err);
+    }
 };
