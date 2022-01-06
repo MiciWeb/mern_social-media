@@ -75,7 +75,7 @@ const UpdateProfil = () => {
                                                 <img src={user.picture} alt="user-pic" />
                                                 <h4>{user.pseudo}</h4>
                                                 <div className="follow-handler">
-                                                    <FollowHandler idToFollow={user._id} type={'suggestion'} />
+                                                    <FollowHandler idToFollow={user._id} />
                                                 </div>
                                             </li>
                                         );
@@ -93,18 +93,24 @@ const UpdateProfil = () => {
                         <span className="cross" onClick={() => setFollowersPopup(false)}>
                             &#10005;
             </span>
-                        <ul>
+                        <ul>                                    {console.log(userData)}
+
                             {[usersData].map((user) => {
                                 <h4>{user.bio}</h4>
-                                { console.log(user.bio) }
-
-                                return (
-                                    <li key={user._id}>
-                                        <img src={user.picture} alt="user-pic" />
-                                        <h4>{user.pseudo}</h4>
-                                        <h1><FollowHandler idToFollow={user._id} /></h1>
-                                    </li>
-                                );
+                        
+                                for (let i = 0; i < userData.followers.length; i++) {
+                                    if (user._id === userData.followers[i]) {
+                                        return (
+                                            <li key={user._id}>
+                                                <img src={user.picture} alt="user-pic" />
+                                                <h4>{user.pseudo}</h4>
+                                                <div className="follow-handler">
+                                                    <FollowHandler idToFollow={user._id} />
+                                                </div>
+                                            </li>
+                                        );
+                                    }
+                                }
                             })}
                         </ul>
                     </div>
