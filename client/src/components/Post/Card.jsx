@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { dateParser, isEmpty } from "../Utils";
 import FollowHandler from "../Profil/FollowHandler";
-// import LikeButton from "./LikeButton";
+import LikeButton from "./LikeButton";
 // import { updatePost } from "../../actions/post.actions";
 // import DeleteCard from "./DeleteCard";
 // import CardComments from "./CardComments";
@@ -110,7 +110,7 @@ const Card = ({ post }) => {
                 />
                 <span>{post.comments.length}</span>
               </div>
-              {/* <LikeButton post={post} /> */}
+              <LikeButton post={post} />
               <img src="./img/icons/share.svg" alt="share" />
             </div>
             {/* {showComments && <CardComments post={post} />} */}
