@@ -15,6 +15,8 @@ export const DELETE_COMMENT = "DELETE_COMMENT";
 
 export const GET_TRENDS = "GET_TRENDS";
 
+export const GET_POST_ERRORS = "GET_POST_ERRORS";
+
 export const getPosts = (num) => {
   return (dispatch) => {
     return axios
@@ -25,6 +27,20 @@ export const getPosts = (num) => {
         //   dispatch({ type: GET_ALL_POSTS, payload: res.data });
       })
       .catch((err) => console.log(err));
+  };
+};
+
+export const addPost = (data) => {
+  return (dispatch) => {
+    return axios
+      .post(`${process.env.REACT_APP_API_URL}api/post/`, data)
+      .then((res) => {
+        if (res.data.errors) {
+          dispatch({ type: GET_POST_ERRORS, payload: res.data.errors });
+        } else {
+          dispatch({ type: GET_POST_ERRORS, payload: "" });
+        }
+      });
   };
 };
 
