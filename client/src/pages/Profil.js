@@ -3,12 +3,13 @@ import Log from "../components/Log";
 import { UidContext } from "../components/AppContext";
 import UpdateProfil from "../components/Profil/UpdateProfil";
 
-const Profil = () => {
+const Profil = ({ id }) => {
+  { console.log("id: " + id) }
   const uid = useContext(UidContext);
   return (
     <div className="profil-page">
       {uid ? (
-          <UpdateProfil />
+        <UpdateProfil />
       ) : (
           <div className="log-container">
             <Log signin={false} signup={true} />

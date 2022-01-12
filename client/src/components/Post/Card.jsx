@@ -6,6 +6,7 @@ import LikeButton from "./LikeButton";
 import { updatePost } from "../../actions/post.actions";
 import DeleteCard from "./DeleteCard";
 import CardComments from "./CardComments";
+import { Link } from 'react-router-dom';
 
 const Card = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +35,7 @@ const Card = ({ post }) => {
       ) : (
           <>
             <div className="card-left">
+              <Link to="/profil"> hello</Link>
               <img
                 src={
                   !isEmpty(usersData[0]) &&
