@@ -35,7 +35,7 @@ const Card = ({ post }) => {
       ) : (
           <>
             <div className="card-left">
-              <Link to="/profil"> hello</Link>
+            
               <img
                 src={
                   !isEmpty(usersData[0]) &&

@@ -34,6 +34,11 @@ app.get('/jwtid', requireAuth, (req, res) => {
 app.use("/api/user", userRoutes);
 app.use("/api/post", postRoutes);
 
+// heroku
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build")); 
+}
+
 // server
 app.listen(process.env.PORT, () => {
     console.log("listening on port " + process.env.PORT);
