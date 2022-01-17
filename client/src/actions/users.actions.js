@@ -5,7 +5,7 @@ export const GET_USERS = "GET_USERS";
 export const getUsers = () => {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:4000/api/user`)
+      .get(`api/user`)
       .then((res) => {
         dispatch({ type: GET_USERS, payload: res.data });
       })
