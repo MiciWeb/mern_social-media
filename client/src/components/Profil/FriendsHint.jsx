@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { isEmpty } from "../Utils";
 import FollowHandler from "./FollowHandler";
 
@@ -47,26 +48,28 @@ const FriendsHint = () => {
           <i className="fas fa-spinner fa-pulse"></i>
         </div>
       ) : (
-        <ul>
-          {friendsHint &&
-            friendsHint.map((user) => {
-              for (let i = 0; i < usersData.length; i++) {
-                if (user === usersData[i]._id) {
-                  return (
-                    <li className="user-hint" key={user}>
-                      <img src={usersData[i].picture} alt="user-pic" />
-                      <p>{usersData[i].pseudo}</p>
-                      <FollowHandler
-                        idToFollow={usersData[i]._id}
-                        type={"suggestion"}
-                      />
-                    </li>
-                  );
+          <ul>
+            {friendsHint &&
+              friendsHint.map((user) => {
+                for (let i = 0; i < usersData.length; i++) {
+                  if (user === usersData[i]._id) {
+                    return (
+                      <li className="user-hint" key={user}>
+                        <img src={usersData[i].picture} alt="user-pic" />
+                        <Link to={{ pathname: `profil/${usersData[i]._id}` }}>
+                          <p>{usersData[i].pseudo}</p>
+                        </Link>
+                        <FollowHandler
+                          idToFollow={usersData[i]._id}
+                          type={"suggestion"}
+                        />
+                      </li>
+                    );
+                  }
                 }
-              }
-            })}
-        </ul>
-      )}
+              })}
+          </ul>
+        )}
     </div>
   );
 };

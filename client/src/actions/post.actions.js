@@ -17,14 +17,12 @@ export const GET_TRENDS = "GET_TRENDS";
 
 export const GET_POST_ERRORS = "GET_POST_ERRORS";
 
-export const getPosts = (num) => {
+export const getPosts = () => {
   return (dispatch) => {
     return axios
       .get(`api/post/`)
       .then((res) => {
-        //   const array = res.data.slice(0, num);
         dispatch({ type: GET_POSTS, payload: res.data });
-        //   dispatch({ type: GET_ALL_POSTS, payload: res.data });
       })
       .catch((err) => console.log(err));
   };

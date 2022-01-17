@@ -3,9 +3,9 @@ import Log from "../components/Log";
 import { UidContext } from "../components/AppContext";
 import UpdateProfil from "../components/Profil/UpdateProfil";
 
-const Profil = ({ id }) => {
-  { console.log("id: " + id) }
+const Profil = () => {
   const uid = useContext(UidContext);
+
   return (
     <div className="profil-page">
       {uid ? (

@@ -11,11 +11,11 @@ const LeftNav = () => {
                     </NavLink>
                     <br />
                     <NavLink to='/trending' exact activeClassName="active-left-nav">
-                        <img src="./img/icons/rocket.svg" alt="home" />
+                        <img src="./img/icons/rocket.svg" alt="trend" />
                     </NavLink>
                     <br />
                     <NavLink to='/profil' exact activeClassName="active-left-nav">
-                        <img src="./img/icons/user.svg" alt="home" />
+                        <img src="./img/icons/user.svg" alt="profil" />
                     </NavLink>
                 </div>
             </div>
