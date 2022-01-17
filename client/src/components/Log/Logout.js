@@ -10,7 +10,7 @@ const Logout = () => {
   const logout = async () => {
     await axios({
       method: "get",
-      url: `${process.env.REACT_APP_API_URL}api/user/logout`,
+      url: `api/user/logout`,
       withCredentials: true,
     })
       .then(() => removeCookie("jwt"))

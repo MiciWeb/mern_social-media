@@ -13,7 +13,7 @@ const Login = () => {
 
         axios({
             method: "post",
-            url: `${process.env.REACT_APP_API_URL}api/user/login`,
+            url: `api/user/login`,
             withCredentials: true,
             data: {
                 email,
