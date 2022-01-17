@@ -13,7 +13,7 @@ const App = () => {
     const fetchToken = async () => {
       await axios({
         method: "get",
-        url: `${process.env.REACT_APP_API_URL}jwtid`,
+        url: `jwtid`,
         withCredentials: true,
       })
         .then((res) => {
