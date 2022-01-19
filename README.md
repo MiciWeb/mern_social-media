@@ -9,7 +9,8 @@ L'objectif du projet était de reproduire un réseau social en developpant une a
 * J'ai coder l'api du projet avec [Express Js](https://expressjs.com/fr/), un framework de Node Js.
 * La base de donnée à été deployé et hebergé via [MongoDB Atlas](https://www.mongodb.com/atlas/database) et j'ai utiliser [MongoDB Compass](https://www.mongodb.com/products/compass) pour la visualiser en temps réel.
 * La partie visuelle a été faite avec [React](https://fr.reactjs.org/) et sa librairie de gestion d'état [Redux](https://redux.js.org/).
-
+## Fonctionnalité du projet
+...
 ## Lancer le projet
 * Le site est disponible à cette [adresse]().
 
