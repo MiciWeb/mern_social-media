@@ -6,17 +6,20 @@ const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    var emailInvite;
+    var passwordInvite;
+
     function handleInvite(e) {
         e.preventDefault();
-        setEmail("jeanjean@gmail.com")
-        setPassword("jeanjean")
+        emailInvite = "jeanjean@gmail.com";
+        passwordInvite = "jeanjean";
         axios({
             method: "post",
             url: `api/user/login`,
             withCredentials: true,
             data: {
-                email,
-                password,
+                emailInvite,
+                passwordInvite,
             },
         })
             .then((res) => {
