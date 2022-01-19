@@ -18,8 +18,8 @@ const Login = (props) => {
             url: `api/user/login`,
             withCredentials: true,
             data: {
-                emailInvite,
-                passwordInvite,
+                email: emailInvite,
+                password: passwordInvite,
             },
         })
             .then((res) => {
