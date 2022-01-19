@@ -35,34 +35,9 @@ const Login = (props) => {
     };
 
     return (
-        <form action="" onSubmit={handleLogin} id="sign-up-form">
+        <div>
             {isEmpty(props) ? (
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <br />
-                    <input
-                        type="text"
-                        name="email"
-                        id="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                    />
-                    <div className="email error"></div>
-                    <br />
-                    <label htmlFor="password">Mot de passe</label>
-                    <br />
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                    />
-                    <div className="password error"></div>
-                    <br />
-                    <input type="submit" value="Se connecter" />
-                </div>
-            ) : (
+                <form action="" onSubmit={handleLogin} id="sign-up-form">
                     <div>
                         <label htmlFor="email">Email</label>
                         <br />
@@ -71,7 +46,7 @@ const Login = (props) => {
                             name="email"
                             id="email"
                             onChange={(e) => setEmail(e.target.value)}
-                            value={"jeanjean@gmail.com"}
+                            value={email}
                         />
                         <div className="email error"></div>
                         <br />
@@ -82,16 +57,44 @@ const Login = (props) => {
                             name="password"
                             id="password"
                             onChange={(e) => setPassword(e.target.value)}
-                            value={"jeanjean"}
+                            value={password}
                         />
                         <div className="password error"></div>
                         <br />
                         <input type="submit" value="Se connecter" />
                     </div>
+                </form>
+            ) : (
+                    <div>
+                        <form action="" onSubmit={handleLogin} id="sign-up-form">
+                            <label htmlFor="email">Email</label>
+                            <br />
+                            <input
+                                type="text"
+                                name="email"
+                                id="email"
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={"jeanjean@gmail.com"}
+                            />
+                            <div className="email error"></div>
+                            <br />
+                            <label htmlFor="password">Mot de passe</label>
+                            <br />
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={"jeanjean"}
+                            />
+                            <div className="password error"></div>
+                            <br />
+                            <input type="submit" value="Se connecter" />
+                        </form>
+                    </div>
                 )}
 
-
-        </form>
+        </div>
     );
 };
 
