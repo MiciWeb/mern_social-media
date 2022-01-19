@@ -6,8 +6,32 @@ const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    function handleInvite(e) {
+        e.preventDefault();
+        setEmail("jeanjean@gmail.com")
+        setPassword("jeanjean")
+        axios({
+            method: "post",
+            url: `api/user/login`,
+            withCredentials: true,
+            data: {
+                email,
+                password,
+            },
+        })
+            .then((res) => {
+                if (res.data.errors) {
+                } else {
+                    window.location = "/";
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
     const handleLogin = (e) => {
+
         e.preventDefault();
         const emailError = document.querySelector(".email.error");
         const passwordError = document.querySelector(".password.error");
@@ -66,14 +90,13 @@ const Login = (props) => {
                 </form>
             ) : (
                     <div>
-                        <form action="" onSubmit={handleLogin} id="sign-up-form">
+                        <form action="" onSubmit={handleInvite} id="sign-up-form">
                             <label htmlFor="email">Email</label>
                             <br />
                             <input
                                 type="text"
                                 name="email"
                                 id="email"
-                                onChange={(e) => setEmail(e.target.value)}
                                 value={"jeanjean@gmail.com"}
                             />
                             <div className="email error"></div>
@@ -84,7 +107,6 @@ const Login = (props) => {
                                 type="password"
                                 name="password"
                                 id="password"
-                                onChange={(e) => setPassword(e.target.value)}
                                 value={"jeanjean"}
                             />
                             <div className="password error"></div>
@@ -93,7 +115,6 @@ const Login = (props) => {
                         </form>
                     </div>
                 )}
-
         </div>
     );
 };
