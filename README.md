@@ -12,10 +12,10 @@ L'objectif du projet était de reproduire un réseau social en developpant une a
 ## Fonctionnalité du projet
 * On peut s'inscrire et se connecter, une fois connecté nous avons accés à la modification de notre profil ainsi qu'a l'ajout d'une bio ou d'une photo de profil.
 * On peut ensuite pouvoir écrire, modifer, ou supprimer des posts dans le fil d'actualité ainsi que joindre une photo ou un lien youtube à ces publications.
-* Nous pouvons commenter et liker touts nos posts présent sur le site ainsi que cuex fait par les autres utilisateurs que nous pouvons follow et unfollow.
-* Il est possible de modifier, liker et supprimer nos commentaires.
-* Il existe une page tendance ou les publications les plus likés du réseau apparaissent en premier.
-* Il existe aussi un module qui nous suggère automatiquement au hasard des utilisateurs à suivre.
+* Nous pouvons commenter et aimer touts nos posts présent sur le site ainsi que ceux fait par les autres utilisateurs que nous pouvons follow et unfollow.
+* Il est possible de modifier, aimer et supprimer nos commentaires.
+* Il existe une page tendance ou les publications les plus en vogue du réseau apparaissent en premier.
+* Il existe aussi un composant du site qui nous suggère automatiquement au hasard des utilisateurs à suivre.
 ## Lancer le projet
 * Le site est disponible à cette [adresse]().
 
