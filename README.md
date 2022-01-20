@@ -10,7 +10,12 @@ L'objectif du projet était de reproduire un réseau social en developpant une a
 * La base de donnée à été deployé et hebergé via [MongoDB Atlas](https://www.mongodb.com/atlas/database) et j'ai utiliser [MongoDB Compass](https://www.mongodb.com/products/compass) pour la visualiser en temps réel.
 * La partie visuelle a été faite avec [React](https://fr.reactjs.org/) et sa librairie de gestion d'état [Redux](https://redux.js.org/).
 ## Fonctionnalité du projet
-...
+* On peut s'inscrire et se connecter, une fois connecté nous avons accés à la modification de notre profil ainsi qu'a l'ajout d'une bio ou d'une photo de profil.
+* On peut ensuite pouvoir écrire, modifer, ou supprimer des posts dans le fil d'actualité ainsi que joindre une photo ou un lien youtube à ces publications.
+* Nous pouvons commenter et liker touts nos posts présent sur le site ainsi que cuex fait par les autres utilisateurs que nous pouvons follow et unfollow.
+* Il est possible de modifier, liker et supprimer nos commentaires.
+* Il existe une page tendance ou les publications les plus likés du réseau apparaissent en premier.
+* Il existe aussi un module qui nous suggère automatiquement au hasard des utilisateurs à suivre.
 ## Lancer le projet
 * Le site est disponible à cette [adresse]().
 
